@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.rapidapi.core.utils</groupId>
+  <groupId>com.rapidapi.utils</groupId>
   <artifactId>rapidApi</artifactId>
   <version>1.0</version>
   <packaging>jar</packaging>
@@ -37,7 +37,7 @@
     <finalName>rapidApiConnect</finalName>
     <plugins>
 
-      <!-- download source code in Eclipse, best practice -->
+      <!-- download source code in Eclipse-->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-eclipse-plugin</artifactId>
@@ -67,7 +67,7 @@
           <archive>
             <manifest>
           <addClasspath>true</addClasspath>
-          <mainClass>com.rapidapi.core.utils.RapidApi</mainClass>
+          <mainClass>com.rapidapi.utils.Test</mainClass>
           <classpathPrefix>dependency-jars/</classpathPrefix>
             </manifest>
           </archive>

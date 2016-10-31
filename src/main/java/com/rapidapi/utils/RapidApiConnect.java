@@ -1,4 +1,4 @@
-package com.rapidapi.core.utils;
+package com.rapidapi.utils;
 
 import java.io.IOException;
 import java.io.File;
@@ -16,7 +16,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 public class RapidApiConnect {
-  public static final MediaType FORM = MediaType.parse("multipart/form-data");
+  private static final MediaType FORM = MediaType.parse("multipart/form-data");
   private final OkHttpClient client;
   private final String project;
   private final String key;
@@ -60,7 +60,7 @@ public class RapidApiConnect {
   public Map call(String pack, String block, Map body) throws IOException {
     Map<String, Object> result = new HashMap<String, Object>();
 
-    MultipartBody.Builder buildernew = new MultipartBody.Builder()
+    MultipartBody.Builder builder = new MultipartBody.Builder()
       .setType(MultipartBody.FORM);
 
     Set<Map.Entry<String, Argument>> entrySet = body.entrySet();
@@ -68,11 +68,11 @@ public class RapidApiConnect {
     for (Map.Entry<String, Argument> entry : entrySet) {
       Argument argument = entry.getValue();
       if("data".equals(argument.getType())){
-        buildernew.addFormDataPart(entry.getKey(), argument.getValue());
+        builder.addFormDataPart(entry.getKey(), argument.getValue());
       }else{
         File file = new File(argument.getValue());
         if (file.exists() && file.isFile()) {
-          buildernew.addFormDataPart(entry.getKey(), file.getName(), RequestBody.create(MultipartBody.FORM, file));
+          builder.addFormDataPart(entry.getKey(), file.getName(), RequestBody.create(MultipartBody.FORM, file));
         }else{
           result.put("error", "File not exist or can't be read.");
 
@@ -81,7 +81,7 @@ public class RapidApiConnect {
       }
     }
 
-    MultipartBody requestBody = buildernew.build();
+    MultipartBody requestBody = builder.build();
 
     Request request = new Request.Builder()
       .url(RapidApiConnect.blockUrlBuild(pack, block))

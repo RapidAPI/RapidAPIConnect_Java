@@ -1,7 +1,4 @@
-package com.rapidapi.core.utils;
-
-import java.util.HashMap;
-import java.util.Map;
+package com.rapidapi.utils;
 
 public class Argument {
 
