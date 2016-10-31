@@ -7,9 +7,13 @@ This SDK allows you to connect to RapidAPI blocks from your java app. To start o
 
 ##Set-up:
 
-First of all, download the sdk by maven:
+First of all, grab latest sdk jar via Maven:
 
-    _something_here_
+      	<dependency>
+	    <groupId>com.rapidapi.utils</groupId>
+	    <artifactId>rapidApi</artifactId>
+	    <version>1.0</version>
+  	</dependency>
 
 Then, import package in your code:
 
@@ -26,7 +30,7 @@ That's all, your SDK is set up! You can now use any block by copying the code sn
 
 ##Usage:
 
-First of all, we will prepare data, that will be send to api. We use HashMap.
+First of all, we will prepare data, we will use HashMap You can add as many arguments, as api you will call need.
 
 	Map<String, Argument> body = new HashMap<String, Argument>();
     
