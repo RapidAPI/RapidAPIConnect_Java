@@ -9,7 +9,7 @@ This SDK allows you to connect to RapidAPI blocks from your java app. To start o
 
 First of all, grab latest sdk jar via Maven:
 
-      	<dependency>
+	<dependency>
 	    <groupId>com.rapidapi.utils</groupId>
 	    <artifactId>rapidApi</artifactId>
 	    <version>1.0</version>
@@ -17,7 +17,8 @@ First of all, grab latest sdk jar via Maven:
 
 Then, import package in your code:
 
-    import com.rapidapi.core.utils.RapidApi;
+    import com.rapidapi.utils.RapidApiConnect;
+    import com.rapidapi.utils.Argument;
     import java.io.IOException;
     import java.util.HashMap;
     import java.util.Map;
